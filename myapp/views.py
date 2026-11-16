@@ -84,4 +84,24 @@ def register(request):
 
 
 def login_view(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+
+        # Check if the user exists
+        if user is not None:
+            # login(request, user)
+            login(request,user)
+            messages.success(request, "You are now logged in!")
+            # Admin
+            if user.is_superuser:
+                return redirect('/show')
+
+            # For Normal Users
+            return redirect('/index')
+        else:
+            messages.error(request, "Invalid login credentials")
+
     return render(request, 'login.html')
