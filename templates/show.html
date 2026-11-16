@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Page - MtaaBiz</title>
+
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+    />
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  </head>
+  <body>
+    <h1 class="text-center">All Contacts.</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque temporibus
+      cum consequatur unde doloribus architecto placeat eius similique illo
+      magni sequi vero voluptatum, enim impedit nobis, animi atque accusamus?
+      Officiis. Voluptatibus itaque tempore rerum beatae ea nesciunt
+      reprehenderit laboriosam eum accusantium voluptate quod perspiciatis
+      ullam, accusamus dolorem necessitatibus cupiditate animi quibusdam quae
+      suscipit provident, expedita fugiat exercitationem! Perferendis, a
+      reprehenderit?
+    </p>
+
+    <table class="table">
+      <tr class="table-dark">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Message</th>
+      </tr>
+
+      {% for contact in all %}
+
+      <tr>
+        <td>{{contact.name}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.subject}}</td>
+        <td>{{contact.message}}</td>
+        <td>
+          <a href="/edit/{{contact.id}}" class="btn btn-warning">Edit</a>
+          <a href="/delete/{{contact.id}}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
