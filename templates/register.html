@@ -7,121 +7,336 @@
 
     {% load static %}
 
+    <!-- Your existing local Bootstrap -->
     <link
       rel="stylesheet"
       href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
     />
-    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --mtaabiz-primary: #176b55;
+        --mtaabiz-dark: #123d32;
+      }
+
+      body {
+        min-height: 100vh;
+        background: #f4f7f6;
+      }
+
+      .register-card {
+        max-width: 1050px;
+        border: 0;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      .brand-panel {
+        background: linear-gradient(145deg, #176b55, #123d32);
+        color: #fff;
+      }
+
+      .brand-panel img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .brand-accent {
+        color: var(--mtaabiz-primary);
+      }
+
+      .btn-mtaabiz {
+        background: var(--mtaabiz-primary);
+        border-color: var(--mtaabiz-primary);
+        color: #fff;
+      }
+
+      .btn-mtaabiz:hover {
+        background: var(--mtaabiz-dark);
+        border-color: var(--mtaabiz-dark);
+        color: #fff;
+      }
+
+      .form-control {
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+      }
+
+      .form-control:focus {
+        border-color: var(--mtaabiz-primary);
+        box-shadow: 0 0 0 0.2rem rgba(23, 107, 85, 0.12);
+      }
+
+      .password-wrapper {
+        position: relative;
+      }
+
+      .password-toggle {
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        transform: translateY(-50%);
+        border: 0;
+        background: transparent;
+        color: #777;
+        cursor: pointer;
+      }
+
+      @media (max-width: 767.98px) {
+        .brand-panel {
+          display: none;
+        }
+
+        .register-card {
+          border-radius: 12px;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <section class="vh-100" style="background-color: #eee">
-      <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-lg-12 col-xl-11">
-            <div class="card text-black" style="border-radius: 25px">
-              <div class="card-body p-md-5">
-                <div class="row justify-content-center">
-                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                      Sign up
-                    </p>
+    <main
+      class="container min-vh-100 d-flex align-items-center justify-content-center py-4"
+    >
+      <div class="card register-card shadow-lg w-100">
+        <div class="row g-0">
+          <!-- Brand section -->
+          <div
+            class="col-md-5 brand-panel d-flex flex-column justify-content-center align-items-center text-center p-4 p-lg-5"
+          >
+            <div class="mb-4">
+              <h2 class="fw-bold mb-2">MtaaBiz</h2>
+              <p class="text-white-50 mb-0">
+                Empowering businesses. Connecting communities.
+              </p>
+            </div>
 
-                    <form class="mx-1 mx-md-4">
-                      <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                        <div
-                          data-mdb-input-init
-                          class="form-outline flex-fill mb-0"
-                        >
-                          <input
-                            type="text"
-                            id="form3Example1c"
-                            class="form-control"
-                          />
-                          <label class="form-label" for="form3Example1c"
-                            >Your UserName</label
-                          >
-                        </div>
-                      </div>
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+              alt="MtaaBiz registration illustration"
+              class="img-fluid mb-4"
+            />
 
-                      <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                        <div
-                          data-mdb-input-init
-                          class="form-outline flex-fill mb-0"
-                        >
-                          <input
-                            type="password"
-                            id="form3Example4c"
-                            class="form-control"
-                          />
-                          <label class="form-label" for="form3Example4c"
-                            >Password</label
-                          >
-                        </div>
-                      </div>
+            <h4 class="fw-semibold">Join the MtaaBiz Community</h4>
+            <p class="text-white-50 small mb-0">
+              Create your account and get started today.
+            </p>
+          </div>
 
-                      <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                        <div
-                          data-mdb-input-init
-                          class="form-outline flex-fill mb-0"
-                        >
-                          <input
-                            type="password"
-                            id="form3Example4cd"
-                            class="form-control"
-                          />
-                          <label class="form-label" for="form3Example4cd"
-                            >Repeat your password</label
-                          >
-                        </div>
-                      </div>
+          <!-- Registration form -->
+          <div class="col-md-7">
+            <div class="p-4 p-md-5">
+              <div class="mb-4">
+                <span
+                  class="badge rounded-pill bg-success-subtle text-success mb-3"
+                >
+                  CREATE ACCOUNT
+                </span>
 
-                      <div
-                        class="form-check d-flex justify-content-center mb-5"
-                      >
-                        <input
-                          class="form-check-input me-2"
-                          type="checkbox"
-                          value=""
-                          id="form2Example3c"
-                        />
-                        <label class="form-check-label" for="form2Example3">
-                          I agree all statements in
-                          <a href="#!">Terms of service</a>
-                        </label>
-                      </div>
+                <h2 class="fw-bold mb-2">Create your account</h2>
 
-                      <div
-                        class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
-                      >
-                        <button
-                          type="button"
-                          data-mdb-button-init
-                          data-mdb-ripple-init
-                          class="btn btn-primary btn-lg"
-                        >
-                          Register
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                  <div
-                    class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
-                  >
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                      class="img-fluid"
-                      alt="Sample image"
+                <p class="text-secondary mb-0">
+                  Fill in your details below to register with MtaaBiz.
+                </p>
+              </div>
+
+              <form method="POST" action="">
+                {% csrf_token %}
+
+                <!-- Username -->
+                <div class="mb-3">
+                  <label for="form3Example1c" class="form-label fw-semibold">
+                    Your UserName
+                  </label>
+
+                  <div class="input-group">
+                    <span class="input-group-text bg-light">
+                      <i class="fa-solid fa-user brand-accent"></i>
+                    </span>
+
+                    <input
+                      type="text"
+                      id="form3Example1c"
+                      name="username"
+                      class="form-control"
+                      placeholder="Enter your username"
+                      autocomplete="username"
+                      required
                     />
                   </div>
                 </div>
-              </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                  <label for="form3Example4c" class="form-label fw-semibold">
+                    Password
+                  </label>
+
+                  <div class="password-wrapper">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      class="form-control"
+                      placeholder="Create your password"
+                      autocomplete="new-password"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      onclick="togglePassword('form3Example4c', this)"
+                      aria-label="Show password"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Repeat password -->
+                <div class="mb-3">
+                  <label for="form3Example4cd" class="form-label fw-semibold">
+                    Confirm password
+                  </label>
+
+                  <div class="password-wrapper">
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      name="confirm_password"
+                      class="form-control"
+                      placeholder="Confirm your password"
+                      autocomplete="new-password"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      onclick="togglePassword('form3Example4cd', this)"
+                      aria-label="Show password"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+
+                  <div id="passwordMessage" class="small mt-2"></div>
+                </div>
+
+                <!-- Terms and conditions -->
+                <div class="form-check mb-4">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3c"
+                    name="terms"
+                    required
+                  />
+
+                  <label class="form-check-label small" for="form2Example3c">
+                    I agree all statements in
+                    <a
+                      href="#!"
+                      class="brand-accent fw-semibold text-decoration-none"
+                    >
+                      Terms of service
+                    </a>
+                  </label>
+                </div>
+
+                <!-- Register button -->
+                <button
+                  type="submit"
+                  class="btn btn-mtaabiz btn-lg w-100 fw-semibold"
+                >
+                  Create Account
+                  <i class="fa-solid fa-arrow-right ms-2"></i>
+                </button>
+
+                <!-- Login link -->
+                <p class="text-center text-secondary mt-4 mb-0">
+                  Already have an account?
+                  <a
+                    href="#!"
+                    class="brand-accent fw-semibold text-decoration-none"
+                  >
+                    Login here
+                  </a>
+                </p>
+
+                <div class="text-center mt-4">
+                  <small class="text-secondary">
+                    &copy; {% now "Y" %} MtaaBiz. All rights reserved.
+                  </small>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </main>
+
+    <!-- Your existing local Bootstrap JS -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <script>
+      function togglePassword(inputId, button) {
+        const input = document.getElementById(inputId);
+        const icon = button.querySelector("i");
+
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.replace("fa-eye", "fa-eye-slash");
+          button.setAttribute("aria-label", "Hide password");
+        } else {
+          input.type = "password";
+          icon.classList.replace("fa-eye-slash", "fa-eye");
+          button.setAttribute("aria-label", "Show password");
+        }
+      }
+
+      const password = document.getElementById("form3Example4c");
+      const confirmPassword = document.getElementById("form3Example4cd");
+      const passwordMessage = document.getElementById("passwordMessage");
+      const registerForm = document.querySelector("form");
+
+      function checkPasswords() {
+        if (!confirmPassword.value) {
+          passwordMessage.textContent = "";
+          confirmPassword.setCustomValidity("");
+          return;
+        }
+
+        if (password.value !== confirmPassword.value) {
+          passwordMessage.textContent = "Passwords do not match.";
+          passwordMessage.className = "small mt-2 text-danger";
+          confirmPassword.setCustomValidity("Passwords do not match.");
+        } else {
+          passwordMessage.textContent = "Passwords match.";
+          passwordMessage.className = "small mt-2 text-success";
+          confirmPassword.setCustomValidity("");
+        }
+      }
+
+      password.addEventListener("input", checkPasswords);
+      confirmPassword.addEventListener("input", checkPasswords);
+
+      registerForm.addEventListener("submit", function (event) {
+        checkPasswords();
+
+        if (!registerForm.checkValidity()) {
+          event.preventDefault();
+          registerForm.reportValidity();
+        }
+      });
+    </script>
   </body>
 </html>
